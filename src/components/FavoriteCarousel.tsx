@@ -1,5 +1,4 @@
-// src/components/FavoritesCarousel.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
 interface Favorite {

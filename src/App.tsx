@@ -1,4 +1,3 @@
-// src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import MovieList from './components/MovieList';
@@ -11,7 +10,7 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container">
             <Link to="/" className="navbar-brand">
-              Movie App
+              Atividade 4
             </Link>
             <button
               className="navbar-toggler"
@@ -33,7 +32,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link to="/favorites" className="nav-link">
-                    Favorites
+                    Meus Favoritos
                   </Link>
                 </li>
               </ul>

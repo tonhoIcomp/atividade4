@@ -1,10 +1,9 @@
-// src/components/MovieCarousel.tsx
 import React, { useState, useEffect } from 'react';
 import { Carousel, Modal, Button, Container } from 'react-bootstrap';
 import axios from 'axios';
 import config from '../config';
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   overview: string;
@@ -41,7 +40,17 @@ const MovieCarousel: React.FC = () => {
 
   const addToFavorites = () => {
     if (selectedMovie) {
-      setFavorites((prevFavorites) => [...prevFavorites, selectedMovie]);
+      // Verifique se o filme já está nos favoritos
+      const isFavorite = favorites.some((fav) => fav.id === selectedMovie.id);
+  
+      if (!isFavorite) {
+        // Adicione o filme aos favoritos no estado local
+        setFavorites((prevFavorites) => [...prevFavorites, selectedMovie]);
+  
+        // Salve a lista de favoritos no localStorage
+        localStorage.setItem('favorites', JSON.stringify([...favorites, selectedMovie]));
+      }
+  
       closeModal();
     }
   };
